@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import CustomThemeProvider from 'theme';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -9,7 +9,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <CustomThemeProvider>
+      <App />
+    </CustomThemeProvider>
   </React.StrictMode>
 );
 
