@@ -1,6 +1,3 @@
-
-export type TypeOne = File | Folder;
-
 export type File = {
     id?: string,
     type: "doc" | "pdf" | "csv" | "mov",         
