@@ -2,13 +2,13 @@
 
 import InputFilter from "components/ui/InputFilter"
 import { ChangeEvent, useState } from "react"
-import { File, Folder } from "types/documents"
+import { CustomFile, Folder } from "types/documents"
 import SingleFile from "../SingleFile"
 import Folders from "../Folders"
 import { filterByFilenameQuery } from "../services/filterDocumentsByFilenameQuery"
 
 type DocumentsListProps = {
-    documents: (Folder | File)[]
+    documents: (Folder | CustomFile)[]
 }
 
 const DocumentsList = ({ documents }: DocumentsListProps) => {

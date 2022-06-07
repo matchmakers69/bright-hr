@@ -2,18 +2,18 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { fetchFakeDocuments } from "services/api/fetchDocuments";
-import { File, Folder } from "types/documents";
+import { CustomFile, Folder } from "types/documents";
 import DocumentsList from "./DocumentsList";
 
 const Documents = () => {
   const[loading, setLoading] = useState(true)
-  const[documents, setDocuments] = useState<(Folder | File)[] | null>(null);
+  const[documents, setDocuments] = useState<(Folder | CustomFile)[] | null>(null);
   
 
   useEffect(() => {
     const fetchDocumentsFromFakeApi = async() => {
       const response = await fetchFakeDocuments();
-      setDocuments(response as (Folder | File)[]);
+      setDocuments(response as (Folder | CustomFile)[]);
       setLoading(false)
     }
     fetchDocumentsFromFakeApi()

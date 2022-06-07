@@ -1,4 +1,4 @@
-export type File = {
+export type CustomFile = {
     id?: string,
     type: "doc" | "pdf" | "csv" | "mov",         
     name: string,
@@ -9,7 +9,7 @@ export type Folder = {
     id?: string;
     type: "folder",     
     name: string,
-    files: File[],
+    files: CustomFile[],
     added: string,
 }
 
