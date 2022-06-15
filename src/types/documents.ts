@@ -13,4 +13,6 @@ export type Folder = {
     added: string,
 }
 
+export type Documents = (Folder | CustomFile)[]
+
 

@@ -1,3 +1,5 @@
+import { Documents } from "types/documents";
+
 export type CustomFile = {
   id?: string;
   type: "doc" | "pdf" | "csv" | "mov";
@@ -33,10 +35,10 @@ export type Folder = {
 
 
 export const filterByFilenameQuery = (
-  documents: (Folder | CustomFile)[],
+  documents: Documents,
   searchQuery: string
-): (Folder | CustomFile)[] => {
-    if(!searchQuery) return []
+): Documents => {
+    if(!searchQuery) return documents
   return documents.reduce<(Folder | CustomFile)[]>((acc, curr) => {
     const isFileFound = curr.name.toLowerCase().includes(searchQuery.toLowerCase());
     const files = 'files' in curr ? filterByFilenameQuery(curr.files, searchQuery) : [];
@@ -44,6 +46,7 @@ export const filterByFilenameQuery = (
     if(isFileFound) {
         return [...acc, ...files, curr] // current is an element was found
     }
+   
      return [...acc, ...files];
     // return [...acc, curr]; // classic sample of map - will return same documents array
   }, []);
