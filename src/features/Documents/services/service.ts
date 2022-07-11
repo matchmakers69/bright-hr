@@ -3,19 +3,19 @@
     //     return new Date(b.added).getTime() - new Date(a.added).getTime()
     // });
 
-import { Documents } from "types/documents";
+import { Documents,CustomFile } from "types/documents";
 import { SortType } from "../DocumentsList";
 
-export const sortDocuments = (documents: Documents, sortType: SortType, asc: boolean): Documents => {
+
+export const sortDocuments = <T = Documents>(documents: Documents, sortType: SortType, asc: boolean): T => {
   if(sortType === "name") {
     const sorted = [...documents].sort((a, b) => a.name.localeCompare(b.name));
     const s = asc ? sorted : sorted.reverse();
 
 
-    
-    // return s.map((item) => {
-    //   return item.type === "folder" && item.files ? sortDocuments(item.files, "name", asc) : item 
-    // })
+    return s.map((item) => {
+      return item.type === "folder" && item.files ? {...item, files: sortDocuments<CustomFile[]>(item.files, "name", asc)} : item 
+    })
   }
 
   if(sortType === "size") {
@@ -39,6 +39,8 @@ export const sortDocuments = (documents: Documents, sortType: SortType, asc: boo
 
   return documents
 }
+
+// // ...responsiveFontSize({ xs: 19, sm: 19, md: 19, lg: 21, xl: 24 }),
 
     // export const sortDocuments = (documents: Documents, sortType: SortType, asc: boolean): Documents => {
     //     if(sortType === "name") {
