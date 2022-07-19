@@ -9,10 +9,11 @@ export type Folder = {
     id?: string;
     type: "folder",     
     name: string,
-    files: CustomFile[],
+    files: Documents,
     added: string,
 }
 
+export type SortType = "size" | "name" | "date";
 export type Documents = (Folder | CustomFile)[]
 
 

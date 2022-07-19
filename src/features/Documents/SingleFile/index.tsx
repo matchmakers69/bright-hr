@@ -1,10 +1,10 @@
-import { CustomFile } from "types/documents";
+import { Documents } from "types/documents";
 import DocumentExtIcon from "components/ui/DocumentExtIcon";
 import * as S from "./SingleFile.styled";
 import { IconsMapper } from "../services/iconsMapper";
 
 type SingleFileProps ={ 
-  doc: CustomFile;
+  doc: Documents[0];
 }
 
 const SingleFile = ({doc}: SingleFileProps) => {

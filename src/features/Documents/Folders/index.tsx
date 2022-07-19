@@ -2,12 +2,12 @@ import DocumentExtIcon from "components/ui/DocumentExtIcon"
 import FolderButton from "components/ui/FolderButton"
 import { useState } from "react"
 import * as S from "./Folders.styled";
-import { CustomFile } from "types/documents"
+import { Documents } from "types/documents"
 import { IconsMapper } from "../services/iconsMapper"
 import SingleFile from "../SingleFile"
 
 type FoldersProp = {
-    files: CustomFile[] | undefined
+    files: Documents
     name: string;
 }
 
